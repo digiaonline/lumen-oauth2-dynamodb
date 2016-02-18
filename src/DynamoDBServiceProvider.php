@@ -13,6 +13,11 @@ use Nord\Lumen\OAuth2\DynamoDB\Storages\RefreshTokenStorage;
 use Nord\Lumen\OAuth2\DynamoDB\Storages\ScopeStorage;
 use Nord\Lumen\OAuth2\DynamoDB\Storages\SessionStorage;
 
+/**
+ * Class DynamoDBServiceProvider.
+ *
+ * @package Nord\Lumen\OAuth2\DynamoDB
+ */
 class DynamoDBServiceProvider extends ServiceProvider
 {
 
@@ -24,9 +29,8 @@ class DynamoDBServiceProvider extends ServiceProvider
         $this->registerContainerBindings($this->app);
     }
 
-
     /**
-     *
+     * @param Container $container
      */
     protected function registerContainerBindings(Container $container)
     {
