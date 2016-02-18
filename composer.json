@@ -1,0 +1,30 @@
+{
+  "name": "nordsoftware/lumen-oauth2-dynamodb",
+  "description": "DynamoDB OAuth2 module for the Lumen PHP framework.",
+  "keywords": [
+    "laravel",
+    "lumen",
+    "oauth2"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kenneth Söderlund",
+      "email": "kenneth.soderlund@nordsoftware.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "nordsoftware/lumen-dynamodb": "^0.2",
+    "nordsoftware/lumen-oauth2": "^1.2",
+    "crisu83/shortid": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nord\\Lumen\\OAuth2\\DynamoDB\\": "src"
+    }
+  },
+  "require-dev": {
+    "laravel/lumen-framework": "^5.2"
+  }
+}
