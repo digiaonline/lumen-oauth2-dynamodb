@@ -2,6 +2,15 @@
 
 use Nord\Lumen\DynamoDb\Domain\Model\DynamoDbModel;
 
+/**
+ * Class Client.
+ *
+ * @package Nord\Lumen\OAuth2\DynamoDB\Models
+ *
+ * @property string $key
+ * @property string $name
+ * @property string $secret
+ */
 class Client extends DynamoDbModel
 {
 
@@ -30,7 +39,6 @@ class Client extends DynamoDbModel
         'secret',
     ];
 
-
     /**
      * @param string $key
      *
@@ -41,7 +49,6 @@ class Client extends DynamoDbModel
         return self::where('key', $key)->first();
     }
 
-
     /**
      * @param int $sessionId
      *
@@ -49,6 +56,8 @@ class Client extends DynamoDbModel
      */
     public static function findBySessionId($sessionId)
     {
-        return self::where('session_id', $sessionId)->first();
+        $session = Session::find($sessionId);
+
+        return self::find($session->getAttribute('clientId'));
     }
 }
