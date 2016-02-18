@@ -2,6 +2,15 @@
 
 use Nord\Lumen\DynamoDb\Domain\Model\DynamoDbModel;
 
+/**
+ * Class AccessToken.
+ *
+ * @package Nord\Lumen\OAuth2\DynamoDB\Models
+ *
+ * @property int    $sessionId
+ * @property string $token
+ * @property string $expireTime
+ */
 class AccessToken extends DynamoDbModel
 {
 
@@ -19,11 +28,10 @@ class AccessToken extends DynamoDbModel
      * @var array
      */
     protected $fillable = [
-        'session_id',
+        'sessionId',
         'token',
-        'expire_time',
+        'expireTime',
     ];
-
 
     /**
      * @param string $token

@@ -1,5 +1,6 @@
 <?php namespace Nord\Lumen\OAuth2\DynamoDB\Storages;
 
+use Crisu83\ShortId\ShortId;
 use Nord\Lumen\OAuth2\DynamoDB\Models\AccessToken;
 use Nord\Lumen\OAuth2\DynamoDB\Models\Client;
 use Nord\Lumen\OAuth2\DynamoDB\Models\Session;
@@ -11,6 +12,11 @@ use League\OAuth2\Server\Storage\SessionInterface;
 use Nord\Lumen\OAuth2\Exceptions\ClientNotFound;
 use Nord\Lumen\OAuth2\Exceptions\SessionNotFound;
 
+/**
+ * Class SessionStorage.
+ *
+ * @package Nord\Lumen\OAuth2\DynamoDB\Storages
+ */
 class SessionStorage extends DynamoDBStorage implements SessionInterface
 {
 
@@ -22,7 +28,7 @@ class SessionStorage extends DynamoDBStorage implements SessionInterface
         $accessToken = AccessToken::findByToken($entity->getId());
 
         /** @var Session $session */
-        $session = Session::find($accessToken->session_id);
+        $session = Session::find($accessToken->sessionId);
 
         if ($session === null) {
             throw new SessionNotFound;
@@ -30,7 +36,6 @@ class SessionStorage extends DynamoDBStorage implements SessionInterface
 
         return $this->createEntity($session);
     }
-
 
     /**
      * @inheritdoc
@@ -40,14 +45,12 @@ class SessionStorage extends DynamoDBStorage implements SessionInterface
         throw new \Exception('Not implemented');
     }
 
-
     /**
      * @inheritdoc
      */
     public function getScopes(SessionEntity $session)
     {
     }
-
 
     /**
      * @inheritdoc
@@ -60,16 +63,18 @@ class SessionStorage extends DynamoDBStorage implements SessionInterface
             throw new ClientNotFound;
         }
 
-        $session = Session::create([
-            'client_id'           => $client->getKey(),
-            'owner_type'          => $ownerType,
-            'owner_id'            => $ownerId,
-            'client_redirect_uri' => $clientRedirectUri,
+        $session = new Session([
+            'clientId'          => $client->getKey(),
+            'ownerType'         => $ownerType,
+            'ownerId'           => $ownerId,
+            'clientRedirectUri' => $clientRedirectUri,
         ]);
+
+        $session->setId(ShortId::create()->generate());
+        $session->save();
 
         return $session->getKey();
     }
-
 
     /**
      * @inheritdoc
@@ -78,7 +83,6 @@ class SessionStorage extends DynamoDBStorage implements SessionInterface
     {
         throw new \Exception('Not implemented');
     }
-
 
     /**
      * @param Session $session
@@ -90,7 +94,7 @@ class SessionStorage extends DynamoDBStorage implements SessionInterface
         $entity = new SessionEntity($this->server);
 
         $entity->setId($session->getKey());
-        $entity->setOwner($session->owner_type, $session->owner_id);
+        $entity->setOwner($session->ownerType, $session->ownerId);
 
         return $entity;
     }

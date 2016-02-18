@@ -1,8 +1,16 @@
 <?php namespace Nord\Lumen\OAuth2\DynamoDB\Models;
 
-
 use Nord\Lumen\DynamoDb\Domain\Model\DynamoDbModel;
 
+/**
+ * Class RefreshToken.
+ *
+ * @package Nord\Lumen\OAuth2\DynamoDB\Models
+ *
+ * @property int    $accessTokenId
+ * @property string $token
+ * @property string $expireTime
+ */
 class RefreshToken extends DynamoDbModel
 {
 
@@ -20,11 +28,10 @@ class RefreshToken extends DynamoDbModel
      * @var array
      */
     protected $fillable = [
-        'access_token_id',
+        'accessTokenId',
         'token',
-        'expire_time',
+        'expireTime',
     ];
-
 
     /**
      * @param string $token
