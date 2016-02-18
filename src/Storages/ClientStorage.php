@@ -6,6 +6,11 @@ use League\OAuth2\Server\Entity\SessionEntity;
 use League\OAuth2\Server\Storage\ClientInterface;
 use Nord\Lumen\OAuth2\Exceptions\ClientNotFound;
 
+/**
+ * Class ClientStorage.
+ *
+ * @package Nord\Lumen\OAuth2\DynamoDB\Storages
+ */
 class ClientStorage extends DynamoDBStorage implements ClientInterface
 {
 

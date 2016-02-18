@@ -1,12 +1,18 @@
 <?php namespace Nord\Lumen\OAuth2\DynamoDB\Storages;
 
 use Carbon\Carbon;
+use Crisu83\ShortId\ShortId;
 use League\OAuth2\Server\Entity\RefreshTokenEntity;
 use League\OAuth2\Server\Storage\RefreshTokenInterface;
 use Nord\Lumen\OAuth2\DynamoDB\Models\AccessToken;
 use Nord\Lumen\OAuth2\DynamoDB\Models\RefreshToken;
 use Nord\Lumen\OAuth2\Exceptions\RefreshTokenNotFound;
 
+/**
+ * Class RefreshTokenStorage.
+ *
+ * @package Nord\Lumen\OAuth2\DynamoDB\Storages
+ */
 class RefreshTokenStorage extends DynamoDBStorage implements RefreshTokenInterface
 {
 
@@ -24,7 +30,6 @@ class RefreshTokenStorage extends DynamoDBStorage implements RefreshTokenInterfa
         return $this->createEntity($refreshToken);
     }
 
-
     /**
      * @inheritdoc
      */
@@ -32,24 +37,30 @@ class RefreshTokenStorage extends DynamoDBStorage implements RefreshTokenInterfa
     {
         $accessToken = AccessToken::findByToken($accessToken);
 
-        $refreshToken = RefreshToken::create([
-            'access_token_id' => $accessToken->getKey(),
-            'token'           => $token,
-            'expire_time'     => Carbon::createFromTimestamp($expireTime)->format('Y-m-d H:i:s'),
+        $refreshToken = new RefreshToken([
+            'accessTokenId' => $accessToken->getKey(),
+            'token'         => $token,
+            'expireTime'    => Carbon::createFromTimestamp($expireTime)->format('Y-m-d H:i:s'),
         ]);
+        $refreshToken->setId(ShortId::create()->generate());
+        $refreshToken->save();
 
         return $this->createEntity($refreshToken);
     }
-
 
     /**
      * @inheritdoc
      */
     public function delete(RefreshTokenEntity $token)
     {
-        $this->findByToken($token->getId())->delete();
-    }
+        $refreshToken = $this->findByToken($token->getId());
 
+        if ($refreshToken === null) {
+            throw new RefreshTokenNotFound;
+        }
+
+        $refreshToken->delete();
+    }
 
     /**
      * @param RefreshToken $refreshToken
@@ -62,7 +73,7 @@ class RefreshTokenStorage extends DynamoDBStorage implements RefreshTokenInterfa
 
         $entity->setId($refreshToken->token);
         $entity->setAccessTokenId($refreshToken->accessTokenId);
-        $entity->setExpireTime(Carbon::createFromFormat('Y-m-d H:i:s', $refreshToken->expire_time)->getTimestamp());
+        $entity->setExpireTime(Carbon::createFromFormat('Y-m-d H:i:s', $refreshToken->expireTime)->getTimestamp());
 
         return $entity;
     }

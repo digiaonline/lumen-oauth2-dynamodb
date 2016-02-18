@@ -1,6 +1,7 @@
 <?php namespace Nord\Lumen\OAuth2\DynamoDB\Storages;
 
 use Carbon\Carbon;
+use Crisu83\ShortId\ShortId;
 use League\OAuth2\Server\Entity\AccessTokenEntity;
 use League\OAuth2\Server\Entity\ScopeEntity;
 use League\OAuth2\Server\Exception\AccessDeniedException;
@@ -8,6 +9,11 @@ use League\OAuth2\Server\Storage\AccessTokenInterface;
 use Nord\Lumen\OAuth2\DynamoDB\Models\AccessToken;
 use Nord\Lumen\OAuth2\Exceptions\AccessTokenNotFound;
 
+/**
+ * Class AccessTokenStorage.
+ *
+ * @package Nord\Lumen\OAuth2\DynamoDB\Storages
+ */
 class AccessTokenStorage extends DynamoDBStorage implements AccessTokenInterface
 {
 
@@ -37,11 +43,14 @@ class AccessTokenStorage extends DynamoDBStorage implements AccessTokenInterface
      */
     public function create($token, $expireTime, $sessionId)
     {
-        AccessToken::create([
+        $accessToken = new AccessToken([
             'token'       => $token,
-            'session_id'  => $sessionId,
-            'expire_time' => Carbon::createFromTimestamp($expireTime)->format('Y-m-d H:i:s'),
+            'sessionId'  => $sessionId,
+            'expireTime' => Carbon::createFromTimestamp($expireTime)->format('Y-m-d H:i:s'),
         ]);
+
+        $accessToken->setId(ShortId::create()->generate());
+        $accessToken->save();
     }
 
     /**
@@ -76,7 +85,7 @@ class AccessTokenStorage extends DynamoDBStorage implements AccessTokenInterface
         $entity = new AccessTokenEntity($this->server);
 
         $entity->setId($accessToken->token);
-        $entity->setExpireTime(Carbon::createFromFormat('Y-m-d H:i:s', $accessToken->expire_time)->getTimestamp());
+        $entity->setExpireTime(Carbon::createFromFormat('Y-m-d H:i:s', $accessToken->expireTime)->getTimestamp());
 
         return $entity;
     }
@@ -85,7 +94,6 @@ class AccessTokenStorage extends DynamoDBStorage implements AccessTokenInterface
      * @param string $token
      *
      * @return AccessToken
-     * @throws AccessTokenNotFound
      */
     protected function findByToken($token)
     {
