@@ -46,7 +46,7 @@ class Client extends DynamoDbModel
      */
     public static function findByKey($key)
     {
-        return self::where('key', $key)->first();
+        return self::where('key', $key)->get()->first();
     }
 
     /**

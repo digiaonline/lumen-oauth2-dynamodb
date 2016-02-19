@@ -40,6 +40,6 @@ class AccessToken extends DynamoDbModel
      */
     public static function findByToken($token)
     {
-        return self::where('token', $token)->first();
+        return self::where('token', $token)->get()->first();
     }
 }
