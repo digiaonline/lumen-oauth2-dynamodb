@@ -15,31 +15,35 @@ class RefreshToken extends DynamoDbModel
 {
 
     /**
-     * @var bool
-     */
-    public $timestamps = false;
-
-    /**
-     * @var string
+     * @inheritdoc
      */
     protected $table = 'oauth_refresh_tokens';
 
     /**
-     * @var array
+     * @inheritdoc
      */
     protected $fillable = [
         'accessTokenId',
-        'token',
         'expireTime',
     ];
 
     /**
+     * @inheritdoc
+     */
+    protected $guarded = ['token'];
+
+    /**
+     * @inheritdoc
+     */
+    protected $primaryKey = 'token';
+
+    /**
      * @param string $token
      *
-     * @return RefreshToken
+     * @return RefreshToken|null
      */
     public static function findByToken($token)
     {
-        return self::where('token', $token)->get()->first();
+        return self::find($token);
     }
 }

@@ -39,10 +39,9 @@ class RefreshTokenStorage extends DynamoDBStorage implements RefreshTokenInterfa
 
         $refreshToken = new RefreshToken([
             'accessTokenId' => $accessToken->getKey(),
-            'token'         => $token,
             'expireTime'    => Carbon::createFromTimestamp($expireTime)->format('Y-m-d H:i:s'),
         ]);
-        $refreshToken->setId(ShortId::create()->generate());
+        $refreshToken->setId($token);
         $refreshToken->save();
 
         return $this->createEntity($refreshToken);
