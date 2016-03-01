@@ -14,12 +14,6 @@ use Nord\Lumen\DynamoDb\Domain\Model\DynamoDbModel;
  */
 class Session extends DynamoDbModel
 {
-
-    /**
-     * @var bool
-     */
-    public $timestamps = false;
-
     /**
      * @var string
      */

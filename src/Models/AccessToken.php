@@ -15,31 +15,35 @@ class AccessToken extends DynamoDbModel
 {
 
     /**
-     * @var bool
-     */
-    public $timestamps = false;
-
-    /**
-     * @var string
+     * @inheritdoc
      */
     protected $table = 'oauth_access_tokens';
 
     /**
-     * @var array
+     * @inheritdoc
      */
     protected $fillable = [
         'sessionId',
-        'token',
         'expireTime',
     ];
 
     /**
+     * @inheritdoc
+     */
+    protected $guarded = ['token'];
+
+    /**
+     * @inheritdoc
+     */
+    protected $primaryKey = 'token';
+
+    /**
      * @param string $token
      *
-     * @return AccessToken
+     * @return AccessToken|null
      */
     public static function findByToken($token)
     {
-        return self::where('token', $token)->get()->first();
+        return self::find($token);
     }
 }

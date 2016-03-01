@@ -1,5 +1,5 @@
 # lumen-oauth2-dynamodb
-DynamoDB support for the lumen-oauth2 module
+DynamoDB support for the lumen-oauth2 module.
 
 # Getting started
 
@@ -28,5 +28,19 @@ You will need the following environment variables defined:
     OAUTH2_CLIENT_SECRET=<CLIENT_SECRET>
     OAUTH2_CLIENT_NAME=<CLIENT_NAME>
 
+You may set the `ProvisionedThroughput.ReadCapacityUnits/WriteCapacityUnits` for the tables with the following environment variables:
+    
+    OAUTH2_CLIENTS_DYNAMODB_READ_CAPACITY_UNITS=10
+    OAUTH2_CLIENTS_DYNAMODB_WRITE_CAPACITY_UNITS=20
+    OAUTH2_SESSIONS_DYNAMODB_READ_CAPACITY_UNITS=10
+    OAUTH2_SESSIONS_DYNAMODB_WRITE_CAPACITY_UNITS=20
+    OAUTH2_ACCESS_TOKENS_DYNAMODB_READ_CAPACITY_UNITS=10
+    OAUTH2_ACCESS_TOKENS_DYNAMODB_WRITE_CAPACITY_UNITS=20
+    OAUTH2_REFRESH_TOKENS_DYNAMODB_READ_CAPACITY_UNITS=10
+    OAUTH2_REFRESH_TOKENS_DYNAMODB_WRITE_CAPACITY_UNITS=20
+
+The default values are 10 for read capacity and 20 for write capacity. They're quite high values, so you might want
+to modify the values to better serve your usage of the `oauth_*` tables.
+
 # License
-MIT
+See [LICENSE](LICENSE).

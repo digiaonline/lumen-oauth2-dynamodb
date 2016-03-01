@@ -15,7 +15,7 @@
   ],
   "require": {
     "php": ">=5.5",
-    "nordsoftware/lumen-dynamodb": "^0.2",
+    "nordsoftware/lumen-dynamodb": "^0.3",
     "nordsoftware/lumen-oauth2": "^1.2",
     "crisu83/shortid": "^1.0"
   },

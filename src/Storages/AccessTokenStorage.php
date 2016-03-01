@@ -44,12 +44,11 @@ class AccessTokenStorage extends DynamoDBStorage implements AccessTokenInterface
     public function create($token, $expireTime, $sessionId)
     {
         $accessToken = new AccessToken([
-            'token'       => $token,
             'sessionId'  => $sessionId,
             'expireTime' => Carbon::createFromTimestamp($expireTime)->format('Y-m-d H:i:s'),
         ]);
 
-        $accessToken->setId(ShortId::create()->generate());
+        $accessToken->setId($token);
         $accessToken->save();
     }
 
