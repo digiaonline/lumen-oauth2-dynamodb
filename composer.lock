@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9b8207f1d00a0619590b24604b60ed1f",
-    "content-hash": "18047723850ec6e88efab4f26e5702be",
+    "hash": "83904fc759002a95efc4b45419f0c7bd",
+    "content-hash": "6359040f196f4e3c36f5978eec5175a8",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -939,16 +939,16 @@
         },
         {
             "name": "nordsoftware/lumen-dynamodb",
-            "version": "0.2.2",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nordsoftware/lumen-dynamodb.git",
-                "reference": "5a70252be7934103db6f7fc02d840383cb2f6b60"
+                "reference": "0d00408d685f05a828c8ea565fc55311df00414c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nordsoftware/lumen-dynamodb/zipball/5a70252be7934103db6f7fc02d840383cb2f6b60",
-                "reference": "5a70252be7934103db6f7fc02d840383cb2f6b60",
+                "url": "https://api.github.com/repos/nordsoftware/lumen-dynamodb/zipball/0d00408d685f05a828c8ea565fc55311df00414c",
+                "reference": "0d00408d685f05a828c8ea565fc55311df00414c",
                 "shasum": ""
             },
             "require": {
@@ -977,7 +977,7 @@
                 }
             ],
             "description": "DynamoDB module for Lumen framework. Based on https://github.com/baopham/laravel-dynamodb",
-            "time": "2016-02-18 11:40:44"
+            "time": "2016-03-01 08:09:05"
         },
         {
             "name": "nordsoftware/lumen-oauth2",
