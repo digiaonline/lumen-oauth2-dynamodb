@@ -15,8 +15,8 @@ return [
             ],
         ],
         'ProvisionedThroughput' => [
-            'ReadCapacityUnits'  => env('OAUTH2_CLIENTS_DYNAMODB_READ_CAPACITY_UNITS', 10),
-            'WriteCapacityUnits' => env('OAUTH2_CLIENTS_DYNAMODB_WRITE_CAPACITY_UNITS', 20),
+            'ReadCapacityUnits'  => (int) env('OAUTH2_CLIENTS_DYNAMODB_READ_CAPACITY_UNITS', 10),
+            'WriteCapacityUnits' => (int) env('OAUTH2_CLIENTS_DYNAMODB_WRITE_CAPACITY_UNITS', 20),
             'OnDemand'           => false,
         ],
     ],
@@ -35,8 +35,8 @@ return [
             ],
         ],
         'ProvisionedThroughput' => [
-            'ReadCapacityUnits'  => env('OAUTH2_SESSIONS_DYNAMODB_READ_CAPACITY_UNITS', 10),
-            'WriteCapacityUnits' => env('OAUTH2_SESSIONS_DYNAMODB_WRITE_CAPACITY_UNITS', 20),
+            'ReadCapacityUnits'  => (int) env('OAUTH2_SESSIONS_DYNAMODB_READ_CAPACITY_UNITS', 10),
+            'WriteCapacityUnits' => (int) env('OAUTH2_SESSIONS_DYNAMODB_WRITE_CAPACITY_UNITS', 20),
             'OnDemand'           => false,
         ],
     ],
@@ -55,8 +55,8 @@ return [
             ],
         ],
         'ProvisionedThroughput' => [
-            'ReadCapacityUnits'  => env('OAUTH2_ACCESS_TOKENS_DYNAMODB_READ_CAPACITY_UNITS', 10),
-            'WriteCapacityUnits' => env('OAUTH2_ACCESS_TOKENS_DYNAMODB_WRITE_CAPACITY_UNITS', 20),
+            'ReadCapacityUnits'  => (int) env('OAUTH2_ACCESS_TOKENS_DYNAMODB_READ_CAPACITY_UNITS', 10),
+            'WriteCapacityUnits' => (int) env('OAUTH2_ACCESS_TOKENS_DYNAMODB_WRITE_CAPACITY_UNITS', 20),
             'OnDemand'           => false,
         ],
     ],
@@ -76,8 +76,8 @@ return [
             ],
         ],
         'ProvisionedThroughput' => [
-            'ReadCapacityUnits'  => env('OAUTH2_REFRESH_TOKENS_DYNAMODB_READ_CAPACITY_UNITS', 10),
-            'WriteCapacityUnits' => env('OAUTH2_REFRESH_TOKENS_DYNAMODB_WRITE_CAPACITY_UNITS', 20),
+            'ReadCapacityUnits'  => (int) env('OAUTH2_REFRESH_TOKENS_DYNAMODB_READ_CAPACITY_UNITS', 10),
+            'WriteCapacityUnits' => (int) env('OAUTH2_REFRESH_TOKENS_DYNAMODB_WRITE_CAPACITY_UNITS', 20),
             'OnDemand'           => false,
         ],
     ],
