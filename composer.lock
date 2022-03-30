@@ -1,10 +1,9 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "83904fc759002a95efc4b45419f0c7bd",
     "content-hash": "6359040f196f4e3c36f5978eec5175a8",
     "packages": [
         {
@@ -85,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-02-17 00:04:30"
+            "time": "2016-02-17T00:04:30+00:00"
         },
         {
             "name": "crisu83/shortid",
@@ -127,7 +126,7 @@
                     "email": "christofferniska@gmail.com"
                 }
             ],
-            "time": "2015-04-22 07:56:14"
+            "time": "2015-04-22T07:56:14+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -194,7 +193,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2015-11-06 14:35:42"
+            "time": "2015-11-06T14:35:42+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -256,7 +255,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2015-11-23 00:47:50"
+            "time": "2015-11-23T00:47:50+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -307,45 +306,50 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2015-10-15 22:28:00"
+            "time": "2015-10-15T22:28:00+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.2.2",
+            "version": "1.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "f5d04bdd2881ac89abde1fb78cc234bce24327bb"
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5d04bdd2881ac89abde1fb78cc234bce24327bb",
-                "reference": "f5d04bdd2881ac89abde1fb78cc234bce24327bb",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/337e3ad8e5716c15f9657bd214d16cc5e69df268",
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
-                "psr/http-message": "~1.0"
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
             },
             "provide": {
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "ext-zlib": "*",
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.10"
+            },
+            "suggest": {
+                "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Psr7\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -353,19 +357,66 @@
             ],
             "authors": [
                 {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
+                    "homepage": "https://github.com/Tobion"
                 }
             ],
-            "description": "PSR-7 message implementation",
+            "description": "PSR-7 message implementation that also provides common utility methods",
             "keywords": [
                 "http",
                 "message",
+                "psr-7",
+                "request",
+                "response",
                 "stream",
-                "uri"
+                "uri",
+                "url"
             ],
-            "time": "2016-01-23 01:23:02"
+            "support": {
+                "issues": "https://github.com/guzzle/psr7/issues",
+                "source": "https://github.com/guzzle/psr7/tree/1.8.5"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-03-20T21:51:18+00:00"
         },
         {
             "name": "illuminate/container",
@@ -408,7 +459,7 @@
             ],
             "description": "The Illuminate Container package.",
             "homepage": "http://laravel.com",
-            "time": "2016-01-18 22:49:36"
+            "time": "2016-01-18T22:49:36+00:00"
         },
         {
             "name": "illuminate/contracts",
@@ -450,7 +501,7 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "http://laravel.com",
-            "time": "2016-01-07 19:57:38"
+            "time": "2016-01-07T19:57:38+00:00"
         },
         {
             "name": "illuminate/database",
@@ -510,7 +561,7 @@
                 "orm",
                 "sql"
             ],
-            "time": "2016-01-06 16:20:30"
+            "time": "2016-01-06T16:20:30+00:00"
         },
         {
             "name": "illuminate/support",
@@ -566,7 +617,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-16 14:39:24"
+            "time": "2016-02-16T14:39:24+00:00"
         },
         {
             "name": "ircmaxell/random-lib",
@@ -620,7 +671,7 @@
                 "random-numbers",
                 "random-strings"
             ],
-            "time": "2015-01-15 16:31:45"
+            "time": "2015-01-15T16:31:45+00:00"
         },
         {
             "name": "ircmaxell/security-lib",
@@ -661,7 +712,7 @@
             ],
             "description": "A Base Security Library",
             "homepage": "https://github.com/ircmaxell/PHP-SecurityLib",
-            "time": "2013-04-30 18:00:34"
+            "time": "2013-04-30T18:00:34+00:00"
         },
         {
             "name": "league/event",
@@ -711,7 +762,7 @@
                 "event",
                 "listener"
             ],
-            "time": "2015-05-21 12:24:47"
+            "time": "2015-05-21T12:24:47+00:00"
         },
         {
             "name": "league/oauth2-server",
@@ -775,7 +826,7 @@
                 "secure",
                 "server"
             ],
-            "time": "2016-01-04 19:56:12"
+            "time": "2016-01-04T19:56:12+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -830,7 +881,7 @@
                 "json",
                 "jsonpath"
             ],
-            "time": "2016-01-05 18:25:05"
+            "time": "2016-01-05T18:25:05+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -877,7 +928,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2015-11-04 20:07:17"
+            "time": "2015-11-04T20:07:17+00:00"
         },
         {
             "name": "nordsoftware/lumen-core",
@@ -935,7 +986,7 @@
                 "lumen",
                 "rest"
             ],
-            "time": "2015-12-22 09:31:49"
+            "time": "2015-12-22T09:31:49+00:00"
         },
         {
             "name": "nordsoftware/lumen-dynamodb",
@@ -977,7 +1028,7 @@
                 }
             ],
             "description": "DynamoDB module for Lumen framework. Based on https://github.com/baopham/laravel-dynamodb",
-            "time": "2016-03-01 08:09:05"
+            "time": "2016-03-01T08:09:05+00:00"
         },
         {
             "name": "nordsoftware/lumen-oauth2",
@@ -1028,20 +1079,20 @@
                 "lumen",
                 "oauth2"
             ],
-            "time": "2016-02-18 11:03:45"
+            "time": "2016-02-18T11:03:45+00:00"
         },
         {
             "name": "psr/http-message",
-            "version": "1.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
                 "shasum": ""
             },
             "require": {
@@ -1069,6 +1120,7 @@
                 }
             ],
             "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
             "keywords": [
                 "http",
                 "http-message",
@@ -1077,7 +1129,54 @@
                 "request",
                 "response"
             ],
-            "time": "2015-05-04 20:22:00"
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/master"
+            },
+            "time": "2016-08-06T14:39:51+00:00"
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.0",
+                "satooshi/php-coveralls": ">=1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "support": {
+                "issues": "https://github.com/ralouphie/getallheaders/issues",
+                "source": "https://github.com/ralouphie/getallheaders/tree/2.0.5"
+            },
+            "time": "2016-02-11T07:05:27+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -1129,7 +1228,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-02-02 13:44:19"
+            "time": "2016-02-02T13:44:19+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1188,7 +1287,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-01-20 09:13:37"
+            "time": "2016-01-20T09:13:37+00:00"
         },
         {
             "name": "symfony/translation",
@@ -1252,7 +1351,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-02-02 13:44:19"
+            "time": "2016-02-02T13:44:19+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -1303,7 +1402,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2015-12-29 15:10:30"
+            "time": "2015-12-29T15:10:30+00:00"
         }
     ],
     "packages-dev": [
@@ -1355,7 +1454,7 @@
             ],
             "description": "The Illuminate Auth package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-15 18:19:43"
+            "time": "2016-02-15T18:19:43+00:00"
         },
         {
             "name": "illuminate/broadcasting",
@@ -1402,7 +1501,7 @@
             ],
             "description": "The Illuminate Broadcasting package.",
             "homepage": "http://laravel.com",
-            "time": "2015-12-24 14:23:14"
+            "time": "2015-12-24T14:23:14+00:00"
         },
         {
             "name": "illuminate/bus",
@@ -1447,7 +1546,7 @@
             ],
             "description": "The Illuminate Bus package.",
             "homepage": "http://laravel.com",
-            "time": "2015-12-05 22:11:33"
+            "time": "2015-12-05T22:11:33+00:00"
         },
         {
             "name": "illuminate/cache",
@@ -1497,7 +1596,7 @@
             ],
             "description": "The Illuminate Cache package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-05 14:57:25"
+            "time": "2016-02-05T14:57:25+00:00"
         },
         {
             "name": "illuminate/config",
@@ -1542,7 +1641,7 @@
             ],
             "description": "The Illuminate Config package.",
             "homepage": "http://laravel.com",
-            "time": "2015-06-22 20:36:58"
+            "time": "2015-06-22T20:36:58+00:00"
         },
         {
             "name": "illuminate/console",
@@ -1593,7 +1692,7 @@
             ],
             "description": "The Illuminate Console package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-09 23:23:13"
+            "time": "2016-02-09T23:23:13+00:00"
         },
         {
             "name": "illuminate/encryption",
@@ -1642,7 +1741,7 @@
             ],
             "description": "The Illuminate Encryption package.",
             "homepage": "http://laravel.com",
-            "time": "2016-01-13 09:25:36"
+            "time": "2016-01-13T09:25:36+00:00"
         },
         {
             "name": "illuminate/events",
@@ -1687,7 +1786,7 @@
             ],
             "description": "The Illuminate Events package.",
             "homepage": "http://laravel.com",
-            "time": "2016-01-01 01:00:19"
+            "time": "2016-01-01T01:00:19+00:00"
         },
         {
             "name": "illuminate/filesystem",
@@ -1737,7 +1836,7 @@
             ],
             "description": "The Illuminate Filesystem package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-16 14:28:17"
+            "time": "2016-02-16T14:28:17+00:00"
         },
         {
             "name": "illuminate/hashing",
@@ -1781,7 +1880,7 @@
             ],
             "description": "The Illuminate Hashing package.",
             "homepage": "http://laravel.com",
-            "time": "2015-11-30 19:26:21"
+            "time": "2015-11-30T19:26:21+00:00"
         },
         {
             "name": "illuminate/http",
@@ -1827,7 +1926,7 @@
             ],
             "description": "The Illuminate Http package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-15 22:02:00"
+            "time": "2016-02-15T22:02:00+00:00"
         },
         {
             "name": "illuminate/pagination",
@@ -1871,7 +1970,7 @@
             ],
             "description": "The Illuminate Pagination package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-03 14:06:46"
+            "time": "2016-02-03T14:06:46+00:00"
         },
         {
             "name": "illuminate/pipeline",
@@ -1915,7 +2014,7 @@
             ],
             "description": "The Illuminate Pipeline package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-08 20:07:06"
+            "time": "2016-02-08T20:07:06+00:00"
         },
         {
             "name": "illuminate/queue",
@@ -1971,7 +2070,7 @@
             ],
             "description": "The Illuminate Queue package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-17 17:19:11"
+            "time": "2016-02-17T17:19:11+00:00"
         },
         {
             "name": "illuminate/session",
@@ -2021,7 +2120,7 @@
             ],
             "description": "The Illuminate Session package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-09 23:34:56"
+            "time": "2016-02-09T23:34:56+00:00"
         },
         {
             "name": "illuminate/translation",
@@ -2066,7 +2165,7 @@
             ],
             "description": "The Illuminate Translation package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-11 06:50:30"
+            "time": "2016-02-11T06:50:30+00:00"
         },
         {
             "name": "illuminate/validation",
@@ -2116,7 +2215,7 @@
             ],
             "description": "The Illuminate Validation package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-15 11:18:38"
+            "time": "2016-02-15T11:18:38+00:00"
         },
         {
             "name": "illuminate/view",
@@ -2163,7 +2262,7 @@
             ],
             "description": "The Illuminate View package.",
             "homepage": "http://laravel.com",
-            "time": "2016-02-02 16:45:07"
+            "time": "2016-02-02T16:45:07+00:00"
         },
         {
             "name": "laravel/lumen-framework",
@@ -2247,7 +2346,7 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2016-02-12 15:02:34"
+            "time": "2016-02-12T15:02:34+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2324,7 +2423,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-10-14 12:51:02"
+            "time": "2015-10-14T12:51:02+00:00"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -2368,7 +2467,7 @@
                 "cron",
                 "schedule"
             ],
-            "time": "2016-01-26 21:23:30"
+            "time": "2016-01-26T21:23:30+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -2411,7 +2510,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2015-12-20 19:50:12"
+            "time": "2015-12-20T19:50:12+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -2459,7 +2558,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-02-06 03:52:05"
+            "time": "2016-02-06T03:52:05+00:00"
         },
         {
             "name": "psr/log",
@@ -2497,7 +2596,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2012-12-21T11:40:51+00:00"
         },
         {
             "name": "symfony/console",
@@ -2557,7 +2656,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-02-02 13:44:19"
+            "time": "2016-02-02T13:44:19+00:00"
         },
         {
             "name": "symfony/debug",
@@ -2614,7 +2713,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-27 05:14:46"
+            "time": "2016-01-27T05:14:46+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2674,7 +2773,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-27 05:14:46"
+            "time": "2016-01-27T05:14:46+00:00"
         },
         {
             "name": "symfony/finder",
@@ -2723,7 +2822,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-27 05:14:46"
+            "time": "2016-01-27T05:14:46+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -2805,7 +2904,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-02-03 12:38:44"
+            "time": "2016-02-03T12:38:44+00:00"
         },
         {
             "name": "symfony/polyfill-php56",
@@ -2861,7 +2960,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-01-20 09:13:37"
+            "time": "2016-01-20T09:13:37+00:00"
         },
         {
             "name": "symfony/polyfill-util",
@@ -2913,7 +3012,7 @@
                 "polyfill",
                 "shim"
             ],
-            "time": "2016-01-20 09:13:37"
+            "time": "2016-01-20T09:13:37+00:00"
         },
         {
             "name": "symfony/process",
@@ -2962,7 +3061,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2016-02-02 13:44:19"
+            "time": "2016-02-02T13:44:19+00:00"
         }
     ],
     "aliases": [],
@@ -2973,5 +3072,6 @@
     "platform": {
         "php": ">=5.5"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
 }
